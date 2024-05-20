@@ -1,20 +1,25 @@
 package me.ivan.collectionexamples.model;
 
 
+import lombok.Builder;
+import lombok.experimental.Accessors;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Collections.unmodifiableList;
-
 public class AppUser {
-    private final long id;
+    private final long id = ++userIdCounter;
     private String name;
     private final List<Operation> list = new ArrayList<>();
     private static long userIdCounter = 0;
 
-    public AppUser(long id, String name) {
-        this.id = ++userIdCounter;
+    public AppUser(String name) {
         this.name = name;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {

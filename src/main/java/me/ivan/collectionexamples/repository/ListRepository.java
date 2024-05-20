@@ -1,6 +1,7 @@
 package me.ivan.collectionexamples.repository;
 
 import me.ivan.collectionexamples.model.Operation;
+import me.ivan.collectionexamples.model.OperationalType;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Repository;
 
@@ -40,7 +41,7 @@ public class ListRepository {
      * @param id - идентификатор юзера
      * @return - мапа - пользователь / сумма всех операций
      */
-    public Map<User, Integer> getAmountByUser(long id) {
+    public Map<User, Integer> getAmountPerUser(long id) {
         return null;
     }
 
@@ -61,5 +62,17 @@ public class ListRepository {
      */
     public List<Long> removeLastOperations(int amount) {
         return null;
+    }
+
+    /**
+     * получить мапу операций по каждому статусу
+     * @return - мапу статус/все операции в этом статусе
+     */
+    public  Map<OperationalType, Operation> getAllPerOperationType() {
+        return null;
+    }
+
+    public long addOperation(){
+        return 0;
     }
 }
