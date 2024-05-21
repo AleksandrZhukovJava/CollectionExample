@@ -1,9 +1,10 @@
 package me.ivan.collectionexamples.service;
 
 import lombok.RequiredArgsConstructor;
-import me.ivan.collectionexamples.model.Operation;
+import me.ivan.collectionexamples.model.UserOperation;
 import me.ivan.collectionexamples.model.OperationalType;
 import me.ivan.collectionexamples.repository.ListRepository;
+import me.ivan.collectionexamples.repository.MapRepository;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ListService {
     private final ListRepository repository;
+    private final MapRepository mapRepository;
 
-    public List<Operation> getHigherThan(int amount) {
+    public List<UserOperation> getHigherThan(int amount) {
         return repository.getHigherThan(amount);
     }
 
@@ -27,15 +29,19 @@ public class ListService {
         return repository.getAmountPerUser(id);
     }
 
-    public List<Operation> getLastOperations(int amount){
+    public List<UserOperation> getLastOperations(int amount){
         return repository.getLastOperations(amount);
     }
     public List<Long> removeLastOperations(int amount){
         return repository.removeLastOperations(amount);
     }
 
-    public  Map<OperationalType, Operation> getAllPerOperationType() {
+    public  Map<OperationalType, UserOperation> getAllPerOperationType() {
         return repository.getAllPerOperationType();
+    }
+
+    public List<UserOperation> getAllUntilType(long userId, OperationalType type){
+        return repository.getAllUntilType(userId, type);
     }
 
     /**

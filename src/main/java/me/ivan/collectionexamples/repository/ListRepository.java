@@ -1,6 +1,6 @@
 package me.ivan.collectionexamples.repository;
 
-import me.ivan.collectionexamples.model.Operation;
+import me.ivan.collectionexamples.model.UserOperation;
 import me.ivan.collectionexamples.model.OperationalType;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Repository;
@@ -13,7 +13,7 @@ import java.util.Map;
 @Repository
 public class ListRepository {
 
-    private final Deque<Operation> list = new LinkedList<>();
+    private final Deque<UserOperation> list = new LinkedList<>();
 
     /**
      * получить все операции на сумму больше чем определенная
@@ -21,7 +21,7 @@ public class ListRepository {
      * @param amount - порог
      * @return - операции
      */
-    public List<Operation> getHigherThan(int amount) {
+    public List<UserOperation> getHigherThan(int amount) {
         return null;
     }
 
@@ -50,7 +50,7 @@ public class ListRepository {
      *
      * @return - список последних добавленных операций
      */
-    public List<Operation> getLastOperations(int amount) {
+    public List<UserOperation> getLastOperations(int amount) {
         return null;
     }
 
@@ -68,7 +68,15 @@ public class ListRepository {
      * получить мапу операций по каждому статусу
      * @return - мапу статус/все операции в этом статусе
      */
-    public  Map<OperationalType, Operation> getAllPerOperationType() {
+    public  Map<OperationalType, UserOperation> getAllPerOperationType() {
+        return null;
+    }
+
+    /**
+     * получить все последние операции до определнной операции для пользователя
+     * @return - мапу статус/все операции в этом статусе
+     */
+    public List<UserOperation> getAllUntilType(long userId, OperationalType type){
         return null;
     }
 
